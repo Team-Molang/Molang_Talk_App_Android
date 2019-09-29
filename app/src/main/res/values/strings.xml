@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">몰랑톡</string>
+
+    <string name="signup_nickname_section_title">채팅에서 사용할 \n닉네임을 입력해 주세요.</string>
+    <string name="signup_nickname_hint_nickname_input">닉네임을 입력해주세요. (ex: 팥없는붕어빵)</string>
+
+    <string name="signup_gender_section_title">채팅에서 사용할 \n성별을 선택해 주세요.</string>
+    <string name="signup_gender_man">남자</string>
+    <string name="signup_gender_woman">여자</string>
+
+    <string name="signup_age_section_title">채팅에서 사용할 \n나이를 입력해 주세요.</string>
+    <string name="signup_age_hint_age_input">나이를 입력해주세요. (ex: 30)</string>
+
+    <string name="btn_next">다음</string>
+    <string name="btn_start_molang">몰랑톡 시작하기</string>
 </resources>

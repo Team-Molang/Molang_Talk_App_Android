@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_signup"
+    app:startDestination="@id/fragment_nickname">
+
+    <fragment
+        android:id="@+id/fragment_nickname"
+        android:name="com.molang.talk.ui.common.sign.view.fragment.SignUpNickNameFragment">
+
+        <action
+            android:id="@+id/action_from_nickname_to_gender"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:destination="@+id/fragment_gender" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_gender"
+        android:name="com.molang.talk.ui.common.sign.view.fragment.SignUpGenderFragment"
+        tools:layout="@layout/fragment_signup_gender">
+
+        <action
+            android:id="@+id/action_from_gender_to_age"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:destination="@+id/fragment_age" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_age"
+        android:name="com.molang.talk.ui.common.sign.view.fragment.SignUpAgeFragment"
+        tools:layout="@layout/fragment_signup_age">
+
+    </fragment>
+</navigation>
