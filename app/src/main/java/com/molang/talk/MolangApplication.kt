@@ -8,8 +8,12 @@ import com.facebook.stetho.Stetho
 import org.koin.android.ext.android.startKoin
 
 class MolangApplication : Application() {
+    companion object {
+        var INSTANCE: MolangApplication? = null
+    }
     override fun onCreate() {
         super.onCreate()
+        INSTANCE = this
 
         startKoin(
             this,

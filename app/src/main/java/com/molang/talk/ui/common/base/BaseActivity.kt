@@ -4,6 +4,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
+import com.molang.talk.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -31,10 +34,18 @@ abstract class BaseActivity<V: ViewDataBinding>: AppCompatActivity(), CoroutineS
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, getLayoutId())
+
+        initView()
+        initListener()
+        setUp()
     }
 
     override fun onDestroy() {
         super.onDestroy()
         job.cancelChildren()
     }
+
+    abstract fun initView()
+    abstract fun setUp()
+    abstract fun initListener()
 }
