@@ -1,9 +1,9 @@
 package com.molang.talk.ui.common.sign.view.fragment
 
 import androidx.lifecycle.Observer
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.molang.talk.R
+import com.molang.talk.common.constants.Gender
 import com.molang.talk.databinding.FragmentSignupGenderBinding
 import com.molang.talk.ui.common.base.BaseFragment
 import com.molang.talk.viewmodel.SignUpViewModel
@@ -23,10 +23,10 @@ class SignUpGenderFragment: BaseFragment<FragmentSignupGenderBinding>() {
 
     private fun setUp() {
         viewModel.run {
-            gender.observe(this@SignUpGenderFragment, Observer {
-                when(it) {
-                    is SignUpViewModel.Gender.Man -> binding.radioGroup.check(R.id.rb_gender_man)
-                    is SignUpViewModel.Gender.Woman -> binding.radioGroup.check(R.id.rb_gender_woman)
+            model.observe(this@SignUpGenderFragment, Observer {
+                when(it.gender) {
+                    Gender.MAN.value -> binding.radioGroup.check(R.id.rb_gender_man)
+                    Gender.WOMAN.value -> binding.radioGroup.check(R.id.rb_gender_woman)
                 }
             })
         }
@@ -35,10 +35,12 @@ class SignUpGenderFragment: BaseFragment<FragmentSignupGenderBinding>() {
     private fun initListener() {
         binding.run {
             btnAction.setOnClickListener {
-                val selectGender = if(radioGroup.checkedRadioButtonId == R.id.rb_gender_man) SignUpViewModel.Gender.Man()
-                else SignUpViewModel.Gender.Woman()
+                val selectGender = if(radioGroup.checkedRadioButtonId == R.id.rb_gender_man) Gender.MAN
+                else Gender.WOMAN
 
-                viewModel.setGender(selectGender)
+                viewModel.setModelValue {
+                    gender = selectGender.value
+                }
 
                 findNavController().navigate(R.id.action_from_gender_to_age)
             }

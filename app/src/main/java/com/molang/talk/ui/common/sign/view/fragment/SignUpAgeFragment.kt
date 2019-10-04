@@ -22,8 +22,8 @@ class SignUpAgeFragment: BaseFragment<FragmentSignupAgeBinding>() {
 
     private fun setUp() {
         viewModel.run {
-            age.observe(this@SignUpAgeFragment, Observer {
-                binding.etAge.setText(it.toString())
+            model.observe(this@SignUpAgeFragment, Observer {
+                binding.etAge.setText(it.age.toString())
             })
         }
     }
@@ -31,7 +31,7 @@ class SignUpAgeFragment: BaseFragment<FragmentSignupAgeBinding>() {
     private fun initListener() {
         binding.run {
             btnAction.setOnClickListener {
-
+                viewModel.postUser()
             }
         }
     }

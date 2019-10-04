@@ -4,20 +4,22 @@ import android.annotation.SuppressLint
 import android.app.Application
 import android.os.Build
 import android.webkit.WebView
+import com.facebook.stetho.Stetho
 import org.koin.android.ext.android.startKoin
 
-class MolangApplication: Application() {
+class MolangApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        startKoin(this,
+        startKoin(
+            this,
             listOf(
                 AppModules.viewModelModule,
-                AppModules.repositoryModule
+                AppModules.repositoryModule,
+                AppModules.networkModules
             )
         )
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            WebView.setWebContentsDebuggingEnabled(true)
-        }
+        Stetho.initializeWithDefaults(this)
+        WebView.setWebContentsDebuggingEnabled(true)
     }
 }

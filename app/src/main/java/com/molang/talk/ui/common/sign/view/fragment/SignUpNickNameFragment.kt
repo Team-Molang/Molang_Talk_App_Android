@@ -22,8 +22,8 @@ class SignUpNickNameFragment: BaseFragment<FragmentSignupNicknameBinding>() {
 
     private fun setUp() {
         viewModel.run {
-            nickName.observe(this@SignUpNickNameFragment, Observer {
-                binding.etNickname.setText(it)
+            model.observe(this@SignUpNickNameFragment, Observer {
+                binding.etNickname.setText(it.nickName)
             })
         }
     }
@@ -31,7 +31,9 @@ class SignUpNickNameFragment: BaseFragment<FragmentSignupNicknameBinding>() {
     private fun initListener() {
         binding.run {
             btnAction.setOnClickListener {
-                viewModel.setNickName(etNickname.text.toString())
+                viewModel.setModelValue {
+                    nickName = etNickname.text.toString()
+                }
                 findNavController().navigate(R.id.action_from_nickname_to_gender)
             }
         }
