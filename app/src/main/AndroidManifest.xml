@@ -20,12 +20,17 @@
 <!--            </intent-filter>-->
         </activity>
 
-        <activity android:name=".ui.common.sign.view.activity.SignUpActivity">
+        <activity android:name=".ui.common.sign.view.activity.SignUpActivity"
+            android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.common.home.view.activity.HomeActivity">
+
         </activity>
     </application>
 

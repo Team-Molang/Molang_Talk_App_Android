@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/fragment_cash"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_home">
+
+    <fragment android:id="@+id/fragment_cash"
+        android:name="com.molang.talk.ui.common.home.view.fragment.HomeCashFragment"
+        tools:layout="@layout/fragment_home_cash">
+
+    </fragment>
+
+
+    <fragment android:id="@+id/fragment_matching"
+        android:name="com.molang.talk.ui.common.home.view.fragment.HomeMatchingFragment"
+        tools:layout="@layout/fragment_home_matching">
+
+    </fragment>
+
+
+    <fragment android:id="@+id/fragment_chatting"
+        android:name="com.molang.talk.ui.common.home.view.fragment.HomeChattingFragment"
+        tools:layout="@layout/fragment_home_chatting">
+
+    </fragment>
+
+
+    <fragment android:id="@+id/fragment_setting"
+        android:name="com.molang.talk.ui.common.home.view.fragment.HomeSettingFragment"
+        tools:layout="@layout/fragment_home_setting">
+
+    </fragment>
+
+
+</navigation>

@@ -31,6 +31,9 @@ class SignUpViewModel(
     val signUpStatus: LiveData<SignUpStatus>
         get() = _signUpStatus
 
+    fun setSignUpStatus(status: SignUpStatus) {
+        _signUpStatus.postValue(status)
+    }
 
     fun setModelValue(init: SignUpModel.() -> Unit) {
         _model.postValue((_model.value ?: SignUpModel()).apply(init))

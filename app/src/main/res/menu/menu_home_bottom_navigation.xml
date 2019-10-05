@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/fragment_matching"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="@string/home_bottom_navigation_title_matching"/>
+
+    <item android:id="@+id/fragment_chatting"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="@string/home_bottom_navigation_title_chatting"/>
+
+    <item android:id="@+id/fragment_cash"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="@string/home_bottom_navigation_title_cash"/>
+
+    <item android:id="@+id/fragment_setting"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="@string/home_bottom_navigation_title_setting"/>
+
+</menu>
