@@ -18,4 +18,8 @@
     <string name="home_bottom_navigation_title_chatting">채팅</string>
     <string name="home_bottom_navigation_title_setting">설정</string>
     <string name="home_bottom_navigation_title_cash">포인트</string>
+
+    <string name="home_matching_section_title">랜덤 채팅 상대를 찾아보세요.</string>
+    <string name="home_matching_btn_random_matching">랜덤 상대 찾기</string>
+    <string name="home_matching_btn_different_sex_matching">이성 상대 찾기</string>
 </resources>

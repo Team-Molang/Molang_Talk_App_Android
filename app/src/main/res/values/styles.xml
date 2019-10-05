@@ -37,4 +37,10 @@
         <item name="android:textColor">@color/colorBlack</item>
         <item name="android:textStyle">normal</item>
     </style>
+
+    <style name="AppTheme.Button.Default" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="cornerRadius">8dp</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:layout_height">60dp</item>
+    </style>
 </resources>

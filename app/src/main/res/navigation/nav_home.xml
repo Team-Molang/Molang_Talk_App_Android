@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:startDestination="@id/fragment_cash"
+    app:startDestination="@id/fragment_matching"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_home">
 
@@ -11,10 +11,18 @@
 
     </fragment>
 
+    <fragment android:id="@+id/fragment_find_matching"
+        android:name="com.molang.talk.ui.common.home.view.fragment.HomeFindMatchingFragment"
+        tools:layout="@layout/fragment_home_find_matching">
+
+    </fragment>
 
     <fragment android:id="@+id/fragment_matching"
         android:name="com.molang.talk.ui.common.home.view.fragment.HomeMatchingFragment"
         tools:layout="@layout/fragment_home_matching">
+
+        <action android:id="@+id/action_matching_to_find"
+            app:destination="@id/fragment_find_matching"/>
 
     </fragment>
 

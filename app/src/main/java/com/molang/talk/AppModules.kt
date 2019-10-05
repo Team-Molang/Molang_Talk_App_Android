@@ -6,6 +6,7 @@ import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterF
 import com.molang.talk.common.RetrofitService
 import com.molang.talk.common.constants.NetworkConstants
 import com.molang.talk.common.network.repository.UserRepository
+import com.molang.talk.viewmodel.HomeViewModel
 import com.molang.talk.viewmodel.SignUpViewModel
 import com.molang.talk.viewmodel.base.BaseViewModel
 import okhttp3.OkHttpClient
@@ -22,6 +23,7 @@ class AppModules {
             viewModel { SignUpViewModel(
                 userRepository = get()
             ) }
+            viewModel { HomeViewModel() }
         }
 
         val repositoryModule = module {
