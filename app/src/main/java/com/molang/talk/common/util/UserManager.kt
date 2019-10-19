@@ -4,8 +4,8 @@ import androidx.core.content.edit
 import com.molang.talk.common.extension.sharedPreference
 
 object UserManager {
-    fun userId(): Int? {
-        return sharedPreference()?.getInt(PreferencesManager.PREF_KEY_USER_ID, -1)
+    fun userId(): String {
+        return sharedPreference()?.getString(PreferencesManager.PREF_KEY_USER_ID, null) ?: ""
     }
 
     fun authorization(): String? {

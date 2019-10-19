@@ -22,4 +22,8 @@
     <string name="home_matching_section_title">랜덤 채팅 상대를 찾아보세요.</string>
     <string name="home_matching_btn_random_matching">랜덤 상대 찾기</string>
     <string name="home_matching_btn_different_sex_matching">이성 상대 찾기</string>
+
+    <string name="profile_setting_hint_nickname_input">닉네임을 입력해주세요. (ex: 팥없는붕어빵)</string>
+    <string name="profile_setting_hint_age_input">나이를 입력해주세요. (ex: 30)</string>
+    <string name="profile_setting_btn_update_profile">프로필 업데이트</string>
 </resources>

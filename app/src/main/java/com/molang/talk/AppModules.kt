@@ -26,10 +26,14 @@ class AppModules {
             viewModel { SignUpViewModel(
                 userRepository = get()
             ) }
-            viewModel { HomeViewModel() }
-            viewModel { ProfileSettingViewModel(
-                fileRepository = get()
+            viewModel { HomeViewModel(
+                userRepository = get()
             ) }
+            viewModel { ProfileSettingViewModel(
+                fileRepository = get(),
+                userRepository = get()
+            ) }
+
         }
 
         val repositoryModule = module {

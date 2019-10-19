@@ -1,4 +1,4 @@
-package com.molang.talk.ui.common.profile
+package com.molang.talk.ui.common.profile.view.activity
 
 import android.app.Activity
 import android.content.Intent
@@ -9,13 +9,13 @@ import com.molang.talk.databinding.ActivityProfileSettingBinding
 import com.molang.talk.ui.common.base.BaseActivity
 import com.molang.talk.viewmodel.ProfileSettingViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.net.Uri
-import android.os.ParcelFileDescriptor
-import java.io.ByteArrayInputStream
-import java.io.ByteArrayOutputStream
-import java.io.FileDescriptor
+import androidx.lifecycle.Observer
+import com.molang.talk.MolangApplication
+import com.molang.talk.common.extension.load
+import com.molang.talk.common.extension.observe
+import com.molang.talk.common.extension.toProfileModel
+import com.molang.talk.common.util.UserData
+import com.molang.talk.ui.common.profile.model.ProfileModel
 
 
 class ProfileSettingActivity : BaseActivity<ActivityProfileSettingBinding>() {
@@ -39,10 +39,20 @@ class ProfileSettingActivity : BaseActivity<ActivityProfileSettingBinding>() {
     }
 
     override fun initView() {
-
+        val userData = MolangApplication.userData
+        if(userData == null) {
+            viewModel.getUsers()
+        } else {
+            viewModel.setUserData(userData.toProfileModel())
+        }
     }
 
     override fun setUp() {
+        viewModel.run {
+            observe(userData, Observer {
+                drawUserUI(it)
+            })
+        }
     }
 
     override fun initListener() {
@@ -50,6 +60,17 @@ class ProfileSettingActivity : BaseActivity<ActivityProfileSettingBinding>() {
             ivProfile.setOnClickListener {
                 callGallery()
             }
+            btnUpdateProfile.setOnClickListener {
+                viewModel.putUsers()
+            }
+        }
+    }
+
+    private fun drawUserUI(userData: ProfileModel) {
+        binding.run {
+            etNickname.setText(userData.nickName)
+            etAge.setText(userData.age.toString())
+            ivProfile load userData.profile
         }
     }
 }

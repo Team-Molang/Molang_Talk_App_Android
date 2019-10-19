@@ -18,7 +18,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
     override fun getLayoutId(): Int = R.layout.activity_home
 
     override fun initView() {
-
+        viewModel.getUser()
     }
 
     override fun onSupportNavigateUp(): Boolean {
