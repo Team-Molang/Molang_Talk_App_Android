@@ -8,7 +8,7 @@
         android:icon="@drawable/ic_launcher_foreground"
         android:title="@string/home_bottom_navigation_title_chatting"/>
 
-    <item android:id="@+id/fragment_cash"
+    <item android:id="@+id/fragment_point"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="@string/home_bottom_navigation_title_cash"/>
 

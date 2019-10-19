@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.molang.talk.R
 import com.molang.talk.databinding.FragmentHomeChattingListBinding
 import com.molang.talk.ui.common.chat.model.ChattingListModel
-import com.molang.talk.ui.common.home.adapter.ChattingListRecyclerViewAdapter
+import com.molang.talk.ui.common.chat.adapter.ChattingListRecyclerViewAdapter
 import com.molang.talk.ui.common.home.view.fragment.BaseHomeFragment
 
 class HomeChattingListFragment: BaseHomeFragment<FragmentHomeChattingListBinding>() {
