@@ -1,5 +1,7 @@
 package com.molang.talk.ui.common.chat.view.fragment
 
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.RecyclerView
 import com.molang.talk.R
 import com.molang.talk.databinding.FragmentHomeChattingListBinding
 import com.molang.talk.ui.common.chat.model.ChattingListModel
@@ -15,17 +17,20 @@ class HomeChattingListFragment: BaseHomeFragment<FragmentHomeChattingListBinding
     override fun initView() {
         super.initView()
         binding.run {
-            rvChatList.adapter = chattingListRecyclerViewAdapter
+            rvChatList.run {
+                addItemDecoration(DividerItemDecoration(requireContext(), RecyclerView.VERTICAL))
+                adapter = chattingListRecyclerViewAdapter
+            }
         }
 
         chattingListRecyclerViewAdapter.setItemList(mutableListOf<ChattingListModel>().apply {
-            add(ChattingListModel("asdasad"))
-            add(ChattingListModel("asdasad", isClose = true))
-            add(ChattingListModel("asdasad"))
-            add(ChattingListModel("asdasad"))
-            add(ChattingListModel("asdasad"))
-            add(ChattingListModel("asdasad"))
-            add(ChattingListModel("asdasad"))
+            add(ChattingListModel("zzz", "asdasad"))
+            add(ChattingListModel("zzz", "asdasad", isClose = true))
+            add(ChattingListModel("zzz", "asdasad"))
+            add(ChattingListModel("zzz", "asdasad"))
+            add(ChattingListModel("zzz", "asdasad"))
+            add(ChattingListModel("zzz", "asdasad"))
+            add(ChattingListModel("zzz", "asdasad"))
         })
     }
 
