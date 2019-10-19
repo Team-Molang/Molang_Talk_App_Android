@@ -4,7 +4,7 @@
         android:icon="@drawable/ic_launcher_foreground"
         android:title="@string/home_bottom_navigation_title_matching"/>
 
-    <item android:id="@+id/fragment_chatting"
+    <item android:id="@+id/fragment_chatting_list"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="@string/home_bottom_navigation_title_chatting"/>
 

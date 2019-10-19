@@ -10,7 +10,7 @@ class HomeChattingListFragment: BaseHomeFragment<FragmentHomeChattingBinding>() 
     private val chattingListRecyclerViewAdapter: ChattingListRecyclerViewAdapter by lazy {
         ChattingListRecyclerViewAdapter()
     }
-    override fun getLayoutId(): Int = R.layout.fragment_home_chatting
+    override fun getLayoutId(): Int = R.layout.fragment_home_chatting_list
 
     override fun initView() {
         super.initView()
