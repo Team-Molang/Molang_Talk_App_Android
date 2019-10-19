@@ -6,7 +6,7 @@
     android:id="@+id/nav_home">
 
     <fragment android:id="@+id/fragment_point"
-        android:name="com.molang.talk.ui.common.home.view.fragment.HomePointFragment"
+        android:name="com.molang.talk.ui.common.point.view.fragment.HomePointFragment"
         tools:layout="@layout/fragment_home_point">
 
     </fragment>
