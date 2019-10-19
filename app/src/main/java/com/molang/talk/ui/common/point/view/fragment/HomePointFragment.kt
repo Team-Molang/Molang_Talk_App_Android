@@ -42,7 +42,7 @@ class HomePointFragment: BaseHomeFragment<FragmentHomePointBinding>() {
                 pointHistoryRecyclerViewAdapter.setItemList(it)
             })
             observe(myPoint, Observer {
-                binding.tvMyPoint.text = viewModel.makeMessage(R.string.home_point_my_point, it).getString(requireContext())
+                binding.tvMyPoint.text = viewModel.makeMessage(R.string.home_point_my_point_formatter, it).getString(requireContext())
             })
         }
 

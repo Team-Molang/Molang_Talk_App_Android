@@ -43,4 +43,16 @@
         <item name="android:textSize">16dp</item>
         <item name="android:layout_height">60dp</item>
     </style>
+
+    <style name="AppTheme.Section.Title.Text" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">23dp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AppTheme.Section.Title.Text.Normal" parent="AppTheme.Section.Title.Text">
+        <item name="android:textStyle">normal</item>
+    </style>
+
+
 </resources>
