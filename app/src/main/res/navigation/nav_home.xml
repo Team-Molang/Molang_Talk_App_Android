@@ -28,7 +28,7 @@
 
 
     <fragment android:id="@+id/fragment_chatting"
-        android:name="com.molang.talk.ui.common.home.view.fragment.HomeChattingFragment"
+        android:name="com.molang.talk.ui.common.chat.view.fragment.HomeChattingListFragment"
         tools:layout="@layout/fragment_home_chatting">
 
     </fragment>

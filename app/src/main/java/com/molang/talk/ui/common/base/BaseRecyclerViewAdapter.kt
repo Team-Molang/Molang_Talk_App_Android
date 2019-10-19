@@ -4,12 +4,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 
-abstract class BaseRecyclerViewAdapter<T : Any> : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+abstract class BaseRecyclerViewAdapter<T : BaseModel> : RecyclerView.Adapter<BaseViewHolder<*, *>>() {
 
     protected val itemList: MutableList<T> = mutableListOf()
 
-    abstract fun createVH(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder
-    abstract fun bindVH(holder: RecyclerView.ViewHolder, position: Int)
+    abstract fun createVH(parent: ViewGroup, viewType: Int): BaseViewHolder<*, *>
+    abstract fun bindVH(holder: BaseViewHolder<*, *>, position: Int)
 
     fun setItemList(list: MutableList<T>) {
         val callback = BaseDiffCallback(itemList, list)
@@ -19,13 +19,13 @@ abstract class BaseRecyclerViewAdapter<T : Any> : RecyclerView.Adapter<RecyclerV
         diffResult.dispatchUpdatesTo(this)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*, *> {
         return createVH(parent, viewType)
     }
 
     override fun getItemCount(): Int = itemList.count()
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: BaseViewHolder<*, *>, position: Int) {
         bindVH(holder, position)
     }
 }
