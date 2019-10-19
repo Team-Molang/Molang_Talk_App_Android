@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.molang.talk.common.RetrofitService
 import com.molang.talk.common.constants.NetworkConstants
+import com.molang.talk.common.network.interceptor.AuthenticatorInterceptor
 import com.molang.talk.common.network.repository.FileRepository
 import com.molang.talk.common.network.repository.UserRepository
 import com.molang.talk.viewmodel.HomeViewModel
@@ -47,6 +48,7 @@ class AppModules {
                 }
                 val client = OkHttpClient.Builder()
                     .addInterceptor(loggingInterceptor)
+                    .addInterceptor(AuthenticatorInterceptor())
                     .connectTimeout(120, TimeUnit.SECONDS)
                     .readTimeout(120, TimeUnit.SECONDS)
 
