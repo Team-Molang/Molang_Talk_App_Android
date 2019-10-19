@@ -24,8 +24,6 @@ class ProfileSettingActivity : BaseActivity<ActivityProfileSettingBinding>() {
 
     override fun getLayoutId(): Int = R.layout.activity_profile_setting
 
-    private var saveUri: Uri? = null
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
@@ -33,57 +31,12 @@ class ProfileSettingActivity : BaseActivity<ActivityProfileSettingBinding>() {
             when (requestCode) {
                 RequestCodeConstants.GALLERY -> {
                     data?.data?.let { uri ->
-                        //                        contentResolver?.openOutputStream(uri, "w").use { outputStream ->
-                        val byteArrayOutputStream = ByteArrayOutputStream()
-                        getBitmapFromUri(uri)?.let { bitmap ->
-                            bitmap.compress(Bitmap.CompressFormat.JPEG, 50, byteArrayOutputStream)
-                            byteArrayOutputStream.close()
-                            val resizeInputStream = ByteArrayInputStream(byteArrayOutputStream.toByteArray())
-                            viewModel.postFile(resizeInputStream.readBytes())
-                        }
-
-                    }
-//                    data?.data?.let { uri -> viewModel.postFile(uri) }
-                }
-                55 -> {
-                    data?.data?.let { uri ->
-                        contentResolver?.openOutputStream(uri, "w").use { outputStream ->
-                            val bitmap = saveUri?.let { getBitmapFromUri(it) }
-                            bitmap?.let { bitmap ->
-
-                                //                                val resizeBitmap = Bitmap.createScaledBitmap(bitmap, 500, 500, true)
-                                bitmap.compress(Bitmap.CompressFormat.JPEG, 50, outputStream)
-//                                bitmap.compress(Bitmap.CompressFormat.JPEG, 10, outputStream)
-                                outputStream?.close()
-                            }
-                        }
-
-//                        viewModel.postFile(uri)
+                        viewModel.postFile(uri)
                     }
                 }
             }
         }
     }
-
-    private fun createFile(fileName: String) {
-        val intent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
-            addCategory(Intent.CATEGORY_OPENABLE)
-            type = "image/png"
-            putExtra(Intent.EXTRA_TITLE, fileName)
-        }
-
-        startActivityForResult(intent, 55)
-    }
-
-    private fun getBitmapFromUri(uri: Uri): Bitmap? {
-        val parcelFileDescriptor: ParcelFileDescriptor? =
-            contentResolver.openFileDescriptor(uri, "r")
-        val fileDescriptor: FileDescriptor? = parcelFileDescriptor?.fileDescriptor
-        val image: Bitmap? = BitmapFactory.decodeFileDescriptor(fileDescriptor)
-        parcelFileDescriptor?.close()
-        return image
-    }
-
 
     override fun initView() {
 
