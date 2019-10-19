@@ -4,9 +4,7 @@ import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.molang.talk.MolangApplication
 import com.molang.talk.common.extension.resizeBitmapToInputStream
-import com.molang.talk.common.extension.toMultiPartBody
 import com.molang.talk.common.extension.toProfileModel
 import com.molang.talk.common.extension.toUserData
 import com.molang.talk.common.network.onError
@@ -14,10 +12,7 @@ import com.molang.talk.common.network.onFailure
 import com.molang.talk.common.network.onSuccess
 import com.molang.talk.common.network.repository.FileRepository
 import com.molang.talk.common.network.repository.UserRepository
-import com.molang.talk.common.util.UserData
-import com.molang.talk.common.util.UserManager
-import com.molang.talk.ui.common.profile.model.ProfileModel
-import com.molang.talk.ui.common.sign.model.SignUpModel
+import com.molang.talk.ui.profile.model.ProfileModel
 import com.molang.talk.viewmodel.base.BaseViewModel
 import kotlinx.coroutines.launch
 

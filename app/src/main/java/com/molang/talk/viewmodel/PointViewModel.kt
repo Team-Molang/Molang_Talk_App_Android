@@ -1,16 +1,12 @@
 package com.molang.talk.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.molang.talk.common.network.onSuccess
 import com.molang.talk.common.network.repository.PointRepository
-import com.molang.talk.common.util.MessageModel
-import com.molang.talk.ui.common.point.model.PointHistoryModel
+import com.molang.talk.ui.point.model.PointHistoryModel
 import com.molang.talk.viewmodel.base.BaseViewModel
-import kotlinx.coroutines.async
-import kotlinx.coroutines.joinAll
 import kotlinx.coroutines.launch
 
 class PointViewModel(

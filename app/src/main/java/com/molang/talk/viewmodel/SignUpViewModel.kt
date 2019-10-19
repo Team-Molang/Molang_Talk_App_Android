@@ -4,14 +4,13 @@ import androidx.core.content.edit
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.molang.talk.common.constants.Gender
 import com.molang.talk.common.extension.sharedPreference
 import com.molang.talk.common.network.onError
 import com.molang.talk.common.network.onFailure
 import com.molang.talk.common.network.onSuccess
 import com.molang.talk.common.network.repository.UserRepository
 import com.molang.talk.common.util.PreferencesManager
-import com.molang.talk.ui.common.sign.model.SignUpModel
+import com.molang.talk.ui.sign.model.SignUpModel
 import com.molang.talk.viewmodel.base.BaseViewModel
 import kotlinx.coroutines.launch
 

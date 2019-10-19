@@ -10,8 +10,8 @@ import com.molang.talk.common.network.result.GetUsersResult
 import com.molang.talk.common.network.result.PostUsersResult
 import com.molang.talk.common.network.result.PutUsersResult
 import com.molang.talk.common.util.UserManager
-import com.molang.talk.ui.common.profile.model.ProfileModel
-import com.molang.talk.ui.common.sign.model.SignUpModel
+import com.molang.talk.ui.profile.model.ProfileModel
+import com.molang.talk.ui.sign.model.SignUpModel
 import java.util.*
 
 class UserRepository(

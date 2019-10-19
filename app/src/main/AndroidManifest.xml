@@ -23,7 +23,7 @@
 <!--            </intent-filter>-->
         </activity>
 
-        <activity android:name=".ui.common.sign.view.activity.SignUpActivity"
+        <activity android:name="com.molang.talk.ui.sign.view.activity.SignUpActivity"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,11 +32,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.common.home.view.activity.HomeActivity">
+        <activity android:name="com.molang.talk.ui.home.view.activity.HomeActivity">
 
         </activity>
 
-        <activity android:name=".ui.common.profile.view.activity.ProfileSettingActivity">
+        <activity android:name="com.molang.talk.ui.profile.view.activity.ProfileSettingActivity">
 
         </activity>
     </application>

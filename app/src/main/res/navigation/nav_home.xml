@@ -6,19 +6,19 @@
     android:id="@+id/nav_home">
 
     <fragment android:id="@+id/fragment_point"
-        android:name="com.molang.talk.ui.common.point.view.fragment.HomePointFragment"
+        android:name="com.molang.talk.ui.point.view.fragment.HomePointFragment"
         tools:layout="@layout/fragment_home_point">
 
     </fragment>
 
     <fragment android:id="@+id/fragment_find_matching"
-        android:name="com.molang.talk.ui.common.home.view.fragment.HomeFindMatchingFragment"
+        android:name="com.molang.talk.ui.home.view.fragment.HomeFindMatchingFragment"
         tools:layout="@layout/fragment_home_find_matching">
 
     </fragment>
 
     <fragment android:id="@+id/fragment_matching"
-        android:name="com.molang.talk.ui.common.home.view.fragment.HomeMatchingFragment"
+        android:name="com.molang.talk.ui.home.view.fragment.HomeMatchingFragment"
         tools:layout="@layout/fragment_home_matching">
 
         <action android:id="@+id/action_matching_to_find"
@@ -28,14 +28,14 @@
 
 
     <fragment android:id="@+id/fragment_chatting_list"
-        android:name="com.molang.talk.ui.common.chat.view.fragment.HomeChattingListFragment"
+        android:name="com.molang.talk.ui.chat.view.fragment.HomeChattingListFragment"
         tools:layout="@layout/fragment_home_chatting_list">
 
     </fragment>
 
 
     <fragment android:id="@+id/fragment_setting"
-        android:name="com.molang.talk.ui.common.home.view.fragment.HomeSettingFragment"
+        android:name="com.molang.talk.ui.home.view.fragment.HomeSettingFragment"
         tools:layout="@layout/fragment_home_setting">
 
     </fragment>
