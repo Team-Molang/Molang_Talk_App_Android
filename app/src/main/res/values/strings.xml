@@ -29,5 +29,5 @@
 
     <string name="home_point_btn_charge_point">포인트 충전하기</string>
     <string name="home_point_my_point">내 포인트</string>
-    <string name="home_point_my_point_formatter">%d P</string>
+    <string name="home_point_my_point_formatter">%s Point</string>
 </resources>

@@ -21,22 +21,26 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_my_point"
-            style="@style/AppTheme.Section.Title.Text.Normal"
+            style="@style/AppTheme.Section.Title.Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
+            android:textColor="@color/colorThird"
             android:layout_marginLeft="8dp"
+            tools:text="300 P"
             app:layout_constraintLeft_toRightOf="@+id/tv_my_point_title"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_charge_point"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
             android:text="@string/home_point_btn_charge_point"
             app:layout_constraintLeft_toLeftOf="parent"
+            app:cornerRadius="8dp"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_my_point" />
 

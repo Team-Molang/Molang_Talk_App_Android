@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
+
         <variable
             name="data"
             type="com.molang.talk.ui.common.point.model.PointHistoryModel" />
@@ -11,12 +13,26 @@
         android:layout_height="60dp">
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:text="@{data.point + `Point`}"
-            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/tv_point_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{data.pointName}"
+            android:layout_marginStart="16dp"
+            android:textColor="@color/colorGrayText"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_height="wrap_content"/>
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/tv_point"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/colorThird"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.molang.talk.R
 import com.molang.talk.common.extension.getString
+import com.molang.talk.common.extension.makeMessage
 import com.molang.talk.common.extension.observe
 import com.molang.talk.databinding.FragmentHomePointBinding
 import com.molang.talk.ui.common.home.view.fragment.BaseHomeFragment
@@ -42,7 +43,7 @@ class HomePointFragment: BaseHomeFragment<FragmentHomePointBinding>() {
                 pointHistoryRecyclerViewAdapter.setItemList(it)
             })
             observe(myPoint, Observer {
-                binding.tvMyPoint.text = viewModel.makeMessage(R.string.home_point_my_point_formatter, it).getString(requireContext())
+                binding.tvMyPoint.text = makeMessage(R.string.home_point_my_point_formatter, it).getString(requireContext())
             })
         }
 

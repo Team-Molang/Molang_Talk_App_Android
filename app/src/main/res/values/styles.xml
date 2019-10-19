@@ -49,10 +49,4 @@
         <item name="android:textColor">@color/colorBlack</item>
         <item name="android:textStyle">bold</item>
     </style>
-
-    <style name="AppTheme.Section.Title.Text.Normal" parent="AppTheme.Section.Title.Text">
-        <item name="android:textStyle">normal</item>
-    </style>
-
-
 </resources>
