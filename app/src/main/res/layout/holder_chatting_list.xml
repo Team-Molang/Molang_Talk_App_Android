@@ -6,7 +6,7 @@
 
         <variable
             name="data"
-            type="com.molang.talk.ui.common.chat.model.ChattingListModel" />
+            type="com.molang.talk.ui.chat.model.ChattingListModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

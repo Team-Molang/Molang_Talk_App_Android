@@ -8,6 +8,7 @@
     <color name="colorThird">#46967e</color>
 
     <color name="colorBlack">#0c1e3a</color>
+    <color name="colorWhite">#ffffff</color>
     <color name="colorGray">#cfd2d7</color>
     <color name="colorGrayText">#b5bbc8</color>
 </resources>
