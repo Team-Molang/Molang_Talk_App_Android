@@ -20,7 +20,7 @@ class SignUpAgeFragment: BaseFragment<FragmentSignupAgeBinding>() {
         setUp()
     }
 
-    private fun setUp() {
+    override fun setUp() {
         viewModel.run {
             model.observe(this@SignUpAgeFragment, Observer {
                 binding.etAge.setText(it.age.toString())

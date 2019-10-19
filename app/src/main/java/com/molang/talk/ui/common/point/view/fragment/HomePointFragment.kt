@@ -1,19 +1,26 @@
 package com.molang.talk.ui.common.point.view.fragment
 
+import android.util.Log
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.molang.talk.R
+import com.molang.talk.common.extension.getString
+import com.molang.talk.common.extension.observe
 import com.molang.talk.databinding.FragmentHomePointBinding
-import com.molang.talk.ui.common.chat.adapter.ChattingListRecyclerViewAdapter
-import com.molang.talk.ui.common.chat.model.ChattingListModel
 import com.molang.talk.ui.common.home.view.fragment.BaseHomeFragment
 import com.molang.talk.ui.common.point.adapter.PointHistoryRecyclerViewAdapter
 import com.molang.talk.ui.common.point.model.PointHistoryModel
+import com.molang.talk.viewmodel.PointViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomePointFragment: BaseHomeFragment<FragmentHomePointBinding>() {
+
     private val pointHistoryRecyclerViewAdapter: PointHistoryRecyclerViewAdapter by lazy {
         PointHistoryRecyclerViewAdapter()
     }
+
+    private val viewModel: PointViewModel by viewModel()
 
     override fun getLayoutId(): Int = R.layout.fragment_home_point
 
@@ -25,54 +32,22 @@ class HomePointFragment: BaseHomeFragment<FragmentHomePointBinding>() {
                 adapter = pointHistoryRecyclerViewAdapter
             }
         }
-
-        pointHistoryRecyclerViewAdapter.setItemList(mutableListOf<PointHistoryModel>().apply {
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-            add(PointHistoryModel(30, PointHistoryModel.State.Use))
-
-        })
     }
+
+    override fun setUp() {
+        viewModel.run {
+            observe(displayMessage, Observer {
+            })
+            observe(pointHistories, Observer {
+                pointHistoryRecyclerViewAdapter.setItemList(it)
+            })
+            observe(myPoint, Observer {
+                binding.tvMyPoint.text = viewModel.makeMessage(R.string.home_point_my_point, it).getString(requireContext())
+            })
+        }
+
+        viewModel.onCreate()
+    }
+
 
 }

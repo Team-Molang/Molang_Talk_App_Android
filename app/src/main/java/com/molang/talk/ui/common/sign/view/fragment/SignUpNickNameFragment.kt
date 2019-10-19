@@ -20,7 +20,7 @@ class SignUpNickNameFragment: BaseFragment<FragmentSignupNicknameBinding>() {
         setUp()
     }
 
-    private fun setUp() {
+    override fun setUp() {
         viewModel.run {
             model.observe(this@SignUpNickNameFragment, Observer {
                 binding.etNickname.setText(it.nickName)

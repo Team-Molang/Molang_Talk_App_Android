@@ -1,9 +1,6 @@
 package com.molang.talk.common
 
-import com.molang.talk.common.network.model.GetUsers
-import com.molang.talk.common.network.model.PostFiles
-import com.molang.talk.common.network.model.PostUsers
-import com.molang.talk.common.network.model.PutUsers
+import com.molang.talk.common.network.model.*
 import kotlinx.coroutines.Deferred
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -36,6 +33,22 @@ interface RetrofitService {
         @Path("userId") userId: String,
         @Body model: PutUsers.Request
     ): Deferred<Response<PutUsers.Response>>
+
+    /**
+     * 사용자 포인트 조회
+     */
+    @GET("v1/users/{userId}/point")
+    fun getPointAsync(
+        @Path("userId") userId: String
+    ): Deferred<Response<GetPoint.Response>>
+
+    /**
+     * 사용자 포인트 사용내역 조회
+     */
+    @GET("v1/users/{userId}/point/histories")
+    fun getPointHistoriesAsync(
+        @Path("userId") userId: String
+    ): Deferred<Response<List<GetPointHistories.Response>>>
 
     /**
      * 파일 업로드

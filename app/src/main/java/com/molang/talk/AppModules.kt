@@ -7,8 +7,10 @@ import com.molang.talk.common.RetrofitService
 import com.molang.talk.common.constants.NetworkConstants
 import com.molang.talk.common.network.interceptor.AuthenticatorInterceptor
 import com.molang.talk.common.network.repository.FileRepository
+import com.molang.talk.common.network.repository.PointRepository
 import com.molang.talk.common.network.repository.UserRepository
 import com.molang.talk.viewmodel.HomeViewModel
+import com.molang.talk.viewmodel.PointViewModel
 import com.molang.talk.viewmodel.ProfileSettingViewModel
 import com.molang.talk.viewmodel.SignUpViewModel
 import com.molang.talk.viewmodel.base.BaseViewModel
@@ -33,6 +35,9 @@ class AppModules {
                 fileRepository = get(),
                 userRepository = get()
             ) }
+            viewModel { PointViewModel(
+                pointRepository = get()
+            ) }
 
         }
 
@@ -42,6 +47,10 @@ class AppModules {
             ) }
 
             factory { FileRepository(
+                service = get()
+            ) }
+
+            factory { PointRepository(
                 service = get()
             ) }
         }

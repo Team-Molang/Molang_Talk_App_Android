@@ -41,7 +41,7 @@ class SignUpViewModel(
 
     fun postUser() {
         _model.value?.let {
-            viewModelScope.launch {
+            viewModelScope.launch(exceptionCoroutineScope) {
                 userRepository.postUsers(it)
                     ?.onSuccess {
                         sharedPreference()?.edit {

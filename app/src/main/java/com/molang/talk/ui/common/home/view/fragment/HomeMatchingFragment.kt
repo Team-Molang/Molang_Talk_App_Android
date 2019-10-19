@@ -25,4 +25,7 @@ class HomeMatchingFragment : BaseHomeFragment<FragmentHomeMatchingBinding>() {
         }
     }
 
+    override fun setUp() {
+
+    }
 }

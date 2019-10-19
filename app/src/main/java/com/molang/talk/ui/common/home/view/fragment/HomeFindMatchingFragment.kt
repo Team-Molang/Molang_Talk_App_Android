@@ -20,4 +20,7 @@ class HomeFindMatchingFragment: BaseHomeFragment<FragmentHomeFindMatchingBinding
         viewModel.setMatchingStatus(HomeViewModel.MatchingStatus.Normal)
     }
 
+    override fun setUp() {
+
+    }
 }

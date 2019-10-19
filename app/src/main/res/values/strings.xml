@@ -28,4 +28,5 @@
     <string name="profile_setting_btn_update_profile">프로필 업데이트</string>
 
     <string name="home_point_btn_charge_point">포인트 충전하기</string>
+    <string name="home_point_my_point">%d P</string>
 </resources>

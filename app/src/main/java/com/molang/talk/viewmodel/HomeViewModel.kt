@@ -32,7 +32,7 @@ class HomeViewModel(
     }
 
     fun getUser() {
-        viewModelScope.launch {
+        viewModelScope.launch(exceptionCoroutineScope) {
             userRepository.getUsers()
         }
     }

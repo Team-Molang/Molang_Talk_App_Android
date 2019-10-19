@@ -42,7 +42,7 @@ class ProfileSettingViewModel(
     }
 
     fun postFile(bitmapUri: Uri) {
-        viewModelScope.launch {
+        viewModelScope.launch(exceptionCoroutineScope) {
             bitmapUri.resizeBitmapToInputStream()?.let {
                 fileRepository.postFiles(
                     bitmapByteArray = it
@@ -59,7 +59,7 @@ class ProfileSettingViewModel(
     }
 
     fun getUsers() {
-        viewModelScope.launch {
+        viewModelScope.launch(exceptionCoroutineScope) {
             userRepository.getUsers()
                 ?.onSuccess { setUserData(it.toUserData().toProfileModel()) }
         }
@@ -67,7 +67,7 @@ class ProfileSettingViewModel(
 
     fun putUsers() {
         _userData.value?.let { model ->
-            viewModelScope.launch {
+            viewModelScope.launch(exceptionCoroutineScope) {
                 userRepository.putUsers(model)
             }
         }

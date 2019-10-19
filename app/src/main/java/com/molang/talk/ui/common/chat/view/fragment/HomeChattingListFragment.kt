@@ -9,6 +9,7 @@ import com.molang.talk.ui.common.chat.adapter.ChattingListRecyclerViewAdapter
 import com.molang.talk.ui.common.home.view.fragment.BaseHomeFragment
 
 class HomeChattingListFragment: BaseHomeFragment<FragmentHomeChattingListBinding>() {
+
     private val chattingListRecyclerViewAdapter: ChattingListRecyclerViewAdapter by lazy {
         ChattingListRecyclerViewAdapter()
     }
@@ -34,4 +35,7 @@ class HomeChattingListFragment: BaseHomeFragment<FragmentHomeChattingListBinding
         })
     }
 
+    override fun setUp() {
+
+    }
 }

@@ -21,7 +21,7 @@ class SignUpGenderFragment: BaseFragment<FragmentSignupGenderBinding>() {
         binding.radioGroup.check(R.id.rb_gender_woman)
     }
 
-    private fun setUp() {
+    override fun setUp() {
         viewModel.run {
             model.observe(this@SignUpGenderFragment, Observer {
                 when(it.gender) {

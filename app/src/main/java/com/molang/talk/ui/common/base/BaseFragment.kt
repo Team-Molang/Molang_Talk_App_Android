@@ -26,6 +26,7 @@ abstract class BaseFragment<V: ViewDataBinding>: Fragment(), CoroutineScope {
 
     abstract fun getLayoutId(): Int
     abstract fun initView()
+    abstract fun setUp()
 
     protected lateinit var binding: V
 
@@ -43,5 +44,8 @@ abstract class BaseFragment<V: ViewDataBinding>: Fragment(), CoroutineScope {
         super.onActivityCreated(savedInstanceState)
 
         initView()
+        setUp()
     }
+
+
 }

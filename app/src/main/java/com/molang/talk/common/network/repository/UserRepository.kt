@@ -24,15 +24,10 @@ class UserRepository(
             gender = signUpModel.gender,
             age = signUpModel.age
         )
-        return try {
-            val response = service.postUsersAsync(
-                model = model
-            ).await()
-            response.result()
-        } catch (e: Exception) {
-            e.printStackTrace()
-            Except(NetworkException())
-        }
+        val response = service.postUsersAsync(
+            model = model
+        ).await()
+        return response.result()
     }
 
     suspend fun putUsers(profileModel: ProfileModel): Result<PutUsersResult>? {
@@ -41,31 +36,21 @@ class UserRepository(
             age = profileModel.age,
             profile = profileModel.profile ?: ""
         )
-        return try {
-            val response = service.putUsersAsync(
-                userId = UserManager.userId(),
-                model = model
-            ).await()
-            response.result()
-                ?.onSuccess { getUsers() }
-        } catch (e: Exception) {
-            e.printStackTrace()
-            Except(NetworkException())
-        }
+        val response = service.putUsersAsync(
+            userId = UserManager.userId(),
+            model = model
+        ).await()
+        return response.result()
+            ?.onSuccess { getUsers() }
     }
 
     suspend fun getUsers(): Result<GetUsersResult>? {
-        return try {
-            val response = service.getUsersAsync(
-                userId = UserManager.userId()
-            ).await()
-            response.result()
-                ?.onSuccess {
-                    MolangApplication.userData = it.toUserData()
-                }
-        } catch (e: Exception) {
-            e.printStackTrace()
-            Except(NetworkException())
-        }
+        val response = service.getUsersAsync(
+            userId = UserManager.userId()
+        ).await()
+        return response.result()
+            ?.onSuccess {
+                MolangApplication.userData = it.toUserData()
+            }
     }
 }

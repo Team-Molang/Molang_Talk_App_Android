@@ -16,16 +16,11 @@ class FileRepository(
     private val service: RetrofitService
 ) {
     suspend fun postFiles(bitmapByteArray: ByteArray): Result<PostFilesResult>? {
-        return try {
-            val response = bitmapByteArray.toMultiPartBody()?.let {
-                service.postFilesAsync(
-                    file = it
-                ).await()
-            }
-            response?.result()
-        } catch (e: Exception) {
-            e.printStackTrace()
-            Except(NetworkException())
+        val response = bitmapByteArray.toMultiPartBody()?.let {
+            service.postFilesAsync(
+                file = it
+            ).await()
         }
+        return response?.result()
     }
 }

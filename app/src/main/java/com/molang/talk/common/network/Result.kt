@@ -53,3 +53,19 @@ fun <B : BaseResponse<R>, R : Any> Response<B>.result(): Result<R>? {
         Except(NetworkException(isNetworkConnectionError = false))
     }
 }
+
+
+fun <B : BaseResponse<R>, R : Any> Response<List<B>>.resultList(): Result<MutableList<R>>? {
+    return try {
+        if (this.isSuccessful) {
+            Success(body()?.map { it.mapper() }?.toMutableList())
+        } else {
+            val body = errorBody()?.source()?.buffer()?.clone()?.readUtf8()
+            val error = Gson().fromJson<Failure.Error>(body, Failure.Error::class.java)
+            Failure(error)
+        }
+    } catch (e: Exception) {
+        e.printStackTrace()
+        Except(NetworkException(isNetworkConnectionError = false))
+    }
+}
