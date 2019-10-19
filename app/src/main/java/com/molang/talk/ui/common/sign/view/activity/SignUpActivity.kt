@@ -30,8 +30,8 @@ class SignUpActivity: BaseActivity<ActivitySignupBinding>() {
 
     override fun onStart() {
         super.onStart()
-        UserManager.UDID()?.let { udid ->
-            viewModel.setSignUpStatus(SignUpViewModel.SignUpStatus.Success)
+        UserManager.authorization()?.let { authorization ->
+            if(authorization.isNotEmpty()) viewModel.setSignUpStatus(SignUpViewModel.SignUpStatus.Success)
         }
     }
 

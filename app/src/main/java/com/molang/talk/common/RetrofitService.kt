@@ -24,7 +24,6 @@ interface RetrofitService {
     @Multipart
     @POST("v1/files")
     fun postFilesAsync(
-        @Part("udid") udid: RequestBody,
         @Part file: MultipartBody.Part
     ): Deferred<Response<PostFiles.Response>>
 }

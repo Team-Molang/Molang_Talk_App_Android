@@ -45,7 +45,8 @@ class SignUpViewModel(
                 userRepository.postUsers(it)
                     ?.onSuccess {
                         sharedPreference()?.edit {
-                            putString(PreferencesManager.PREF_KEY_UDID, it.udid)
+                            putInt(PreferencesManager.PREF_KEY_USER_ID, it.userId)
+                            putString(PreferencesManager.PREF_KEY_AUTHORIZATION, it.authorization)
                         }
 
                         _signUpStatus.postValue(SignUpStatus.Success)

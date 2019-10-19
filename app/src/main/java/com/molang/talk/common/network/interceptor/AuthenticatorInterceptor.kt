@@ -8,10 +8,10 @@ import okhttp3.Response
 class AuthenticatorInterceptor: Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
 
-        UserManager.UDID()?.let { udid ->
+        UserManager.authorization()?.let { authorization ->
             val request = chain.request()
             val authenticatedRequest = request.newBuilder()
-                .header("Authorization", udid).build()
+                .header("Authorization", authorization).build()
             return chain.proceed(authenticatedRequest)
         }
 

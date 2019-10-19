@@ -15,11 +15,10 @@ import java.net.URI
 class FileRepository(
     private val service: RetrofitService
 ) {
-    suspend fun postFiles(udid: String, bitmapByteArray: ByteArray): Result<PostFilesResult>? {
+    suspend fun postFiles(bitmapByteArray: ByteArray): Result<PostFilesResult>? {
         return try {
             val response = bitmapByteArray.toMultiPartBody()?.let {
                 service.postFilesAsync(
-                    udid = udid.toRequestBody(),
                     file = it
                 ).await()
             }

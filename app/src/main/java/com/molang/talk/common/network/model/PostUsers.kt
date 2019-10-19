@@ -1,5 +1,6 @@
 package com.molang.talk.common.network.model
 
+import com.google.gson.annotations.SerializedName
 import com.molang.talk.common.network.BaseRequest
 import com.molang.talk.common.network.BaseResponse
 import com.molang.talk.common.network.result.PostUsersResult
@@ -13,11 +14,13 @@ class PostUsers {
     ): BaseRequest()
 
     data class Response(
-        val udid: String
+        @SerializedName("id") val userId: Int,
+        val authorization: String
     ): BaseResponse<PostUsersResult>() {
         override fun mapper(): PostUsersResult? {
             return PostUsersResult(
-                udid = udid
+                userId = userId,
+                authorization = authorization
             )
         }
     }

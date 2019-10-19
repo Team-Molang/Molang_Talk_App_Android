@@ -15,16 +15,14 @@ class ProfileSettingViewModel(
 
     fun postFile(bitmapByteArray: ByteArray) {
         viewModelScope.launch {
-            val udid = UserManager.UDID() ?: return@launch
             fileRepository.postFiles(
-                udid = udid,
                 bitmapByteArray = bitmapByteArray
             )
                 ?.onSuccess {
 
                 }
-                ?.onFailure {  }
-                ?.onError {  }
+                ?.onFailure { }
+                ?.onError { }
         }
     }
 }
