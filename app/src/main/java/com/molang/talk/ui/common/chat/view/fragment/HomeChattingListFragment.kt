@@ -1,12 +1,12 @@
 package com.molang.talk.ui.common.chat.view.fragment
 
 import com.molang.talk.R
-import com.molang.talk.databinding.FragmentHomeChattingBinding
+import com.molang.talk.databinding.FragmentHomeChattingListBinding
 import com.molang.talk.ui.common.chat.model.ChattingListModel
 import com.molang.talk.ui.common.home.adapter.ChattingListRecyclerViewAdapter
 import com.molang.talk.ui.common.home.view.fragment.BaseHomeFragment
 
-class HomeChattingListFragment: BaseHomeFragment<FragmentHomeChattingBinding>() {
+class HomeChattingListFragment: BaseHomeFragment<FragmentHomeChattingListBinding>() {
     private val chattingListRecyclerViewAdapter: ChattingListRecyclerViewAdapter by lazy {
         ChattingListRecyclerViewAdapter()
     }
