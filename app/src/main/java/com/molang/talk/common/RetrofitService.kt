@@ -58,4 +58,12 @@ interface RetrofitService {
     fun postFilesAsync(
         @Part file: MultipartBody.Part
     ): Deferred<Response<PostFiles.Response>>
+
+    /**
+     * 매칭신청
+     */
+    @POST("v1/matching")
+    fun postMatchingAsync(
+        @Body model: PostMatching.Request
+    ): Deferred<Response<PostMatching.Response>>
 }

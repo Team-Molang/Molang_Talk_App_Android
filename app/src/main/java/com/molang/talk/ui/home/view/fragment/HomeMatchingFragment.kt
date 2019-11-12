@@ -21,6 +21,9 @@ class HomeMatchingFragment : BaseHomeFragment<FragmentHomeMatchingBinding>() {
             btnDifferentSexMatching.setOnClickListener {
                 viewModel.setMatchingStatus(HomeViewModel.MatchingStatus.Find)
             }
+            btnRandomMatching.setOnClickListener {
+                viewModel.postMatching()
+            }
         }
     }
 

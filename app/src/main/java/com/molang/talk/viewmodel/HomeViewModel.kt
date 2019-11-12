@@ -3,12 +3,14 @@ package com.molang.talk.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.molang.talk.common.network.repository.MatchingRepository
 import com.molang.talk.common.network.repository.UserRepository
 import com.molang.talk.viewmodel.base.BaseViewModel
 import kotlinx.coroutines.launch
 
 class HomeViewModel(
-    private val userRepository: UserRepository
+    private val userRepository: UserRepository,
+    private val matchingRepository: MatchingRepository
 ) : BaseViewModel() {
 
     sealed class MatchingStatus {
@@ -27,6 +29,12 @@ class HomeViewModel(
     fun getUser() {
         viewModelScope.launch(exceptionCoroutineScope) {
             userRepository.getUsers()
+        }
+    }
+
+    fun postMatching() {
+        viewModelScope.launch(exceptionCoroutineScope) {
+            matchingRepository.postMatching()
         }
     }
 }
