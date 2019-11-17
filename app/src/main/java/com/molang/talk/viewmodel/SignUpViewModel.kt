@@ -47,6 +47,7 @@ class SignUpViewModel(
 
                         _signUpStatus.postValue(SignUpStatus.Success)
                     }
+
                     ?.onFailure { }
                     ?.onError { }
             }
