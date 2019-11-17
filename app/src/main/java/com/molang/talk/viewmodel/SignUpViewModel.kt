@@ -34,6 +34,7 @@ class SignUpViewModel(
         _model.postValue((_model.value ?: SignUpModel()).apply(init))
     }
 
+
     fun postUser() {
         _model.value?.let {
             viewModelScope.launch(exceptionCoroutineScope) {
