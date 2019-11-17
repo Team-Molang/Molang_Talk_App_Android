@@ -28,7 +28,8 @@ class AppModules {
             ) }
             viewModel { HomeViewModel(
                 userRepository = get(),
-                matchingRepository = get()
+                matchingRepository = get(),
+                appRepository = get()
             ) }
             viewModel { ProfileSettingViewModel(
                 fileRepository = get(),

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "135421675989",
+    "firebase_url": "https://amolang-molangtalk.firebaseio.com",
+    "project_id": "amolang-molangtalk",
+    "storage_bucket": "amolang-molangtalk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:135421675989:android:380ae7df8438b93de4955c",
+        "android_client_info": {
+          "package_name": "com.molang.talk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "135421675989-761i50dr80glku2s7dsc67g5ou8gviqb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.molang.talk",
+            "certificate_hash": "00b31dfc4b5c974771152adc9f3d1f7b4328f5b8"
+          }
+        },
+        {
+          "client_id": "135421675989-ba4to9fbekj7sl3j8gs4q3n2dbrbg185.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSuXfRGqMGDe8QyZGmFRGGRnf-I7Ytd1Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "135421675989-ba4to9fbekj7sl3j8gs4q3n2dbrbg185.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,7 +1,11 @@
 package com.molang.talk.ui.home.view.activity
 
+import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.iid.FirebaseInstanceId
 import com.molang.talk.R
 import com.molang.talk.common.extension.observe
 import com.molang.talk.common.extension.to
@@ -16,7 +20,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
     override fun getLayoutId(): Int = R.layout.activity_home
 
     override fun initView() {
-        viewModel.getUser()
+        viewModel.getUser { setFirebaseInstanceIdListener() }
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -64,4 +68,17 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
         }
     }
 
+    private fun setFirebaseInstanceIdListener() {
+        FirebaseInstanceId.getInstance().instanceId
+            .addOnCompleteListener(OnCompleteListener { task ->
+                if (!task.isSuccessful) {
+                    return@OnCompleteListener
+                }
+
+                // Get new Instance ID token
+                task.result?.token?.let { token ->
+                    viewModel.putPushKey(token)
+                }
+            })
+    }
 }
