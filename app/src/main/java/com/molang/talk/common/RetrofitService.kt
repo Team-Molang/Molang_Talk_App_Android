@@ -1,6 +1,7 @@
 package com.molang.talk.common
 
 import com.molang.talk.common.network.model.*
+import com.molang.talk.common.network.model.base.VoidResponse
 import kotlinx.coroutines.Deferred
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -74,4 +75,13 @@ interface RetrofitService {
     fun getAMSAsync(
         @Path("os") osType: String = "AOS"
     ): Deferred<Response<GetAMS.Response>>
+
+    /**
+     * Push Key 등록
+     */
+    @PUT("v1/users/{userId}/pushkey")
+    fun putPushKeyAysnc(
+        @Path("userId") userId: String,
+        @Body model: PutPushKey.Request
+    ): Deferred<Response<VoidResponse>>
 }
