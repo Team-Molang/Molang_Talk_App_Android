@@ -6,15 +6,12 @@ import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterF
 import com.molang.talk.common.RetrofitService
 import com.molang.talk.common.constants.NetworkConstants
 import com.molang.talk.common.network.interceptor.AuthenticatorInterceptor
-import com.molang.talk.common.network.repository.FileRepository
-import com.molang.talk.common.network.repository.MatchingRepository
-import com.molang.talk.common.network.repository.PointRepository
-import com.molang.talk.common.network.repository.UserRepository
+import com.molang.talk.common.network.repository.*
+import com.molang.talk.viewmodel.SplashViewModel
 import com.molang.talk.viewmodel.HomeViewModel
 import com.molang.talk.viewmodel.PointViewModel
 import com.molang.talk.viewmodel.ProfileSettingViewModel
 import com.molang.talk.viewmodel.SignUpViewModel
-import com.molang.talk.viewmodel.base.BaseViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.androidx.viewmodel.ext.koin.viewModel
@@ -40,6 +37,11 @@ class AppModules {
             viewModel { PointViewModel(
                 pointRepository = get()
             ) }
+            viewModel {
+                SplashViewModel(
+                    appRepository = get()
+                )
+            }
 
         }
 
@@ -57,6 +59,10 @@ class AppModules {
             ) }
 
             factory { MatchingRepository(
+                service = get()
+            ) }
+
+            factory { AppRepository(
                 service = get()
             ) }
         }

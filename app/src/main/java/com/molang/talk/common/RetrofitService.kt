@@ -66,4 +66,12 @@ interface RetrofitService {
     fun postMatchingAsync(
         @Body model: PostMatching.Request
     ): Deferred<Response<PostMatching.Response>>
+
+    /**
+     * 앱 실행시 AMS 체크
+     */
+    @GET("v1/ams/{os}")
+    fun getAMSAsync(
+        @Path("os") osType: String = "AOS"
+    ): Deferred<Response<GetAMS.Response>>
 }

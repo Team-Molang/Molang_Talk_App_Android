@@ -25,12 +25,16 @@
 
         <activity android:name="com.molang.talk.ui.sign.view.activity.SignUpActivity"
             android:windowSoftInputMode="stateHidden">
+        </activity>
+
+        <activity android:name="com.molang.talk.ui.splash.view.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
 
         <activity android:name="com.molang.talk.ui.home.view.activity.HomeActivity">
 

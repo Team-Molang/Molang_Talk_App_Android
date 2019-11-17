@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import com.molang.talk.ui.home.view.activity.HomeActivity
 import com.molang.talk.ui.profile.view.activity.ProfileSettingActivity
+import com.molang.talk.ui.sign.view.activity.SignUpActivity
 
 fun Context.startHome() {
     startActivity(Intent(this, HomeActivity::class.java))
@@ -18,6 +19,10 @@ fun Context.startProfileSetting() {
 
 fun Fragment.startProfileSetting() {
     startActivity(Intent(requireContext(), ProfileSettingActivity::class.java))
+}
+
+fun Context.startSignUp() {
+    startActivity(Intent(this, SignUpActivity::class.java))
 }
 
 

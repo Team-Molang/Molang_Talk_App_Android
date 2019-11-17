@@ -28,13 +28,6 @@ class SignUpActivity: BaseActivity<ActivitySignupBinding>() {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        UserManager.authorization()?.let { authorization ->
-            if(authorization.isNotEmpty()) viewModel.setSignUpStatus(SignUpViewModel.SignUpStatus.Success)
-        }
-    }
-
     override fun setUp() {
         viewModel.run {
             observe(signUpStatus, Observer { result ->
