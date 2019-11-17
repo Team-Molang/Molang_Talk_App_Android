@@ -66,7 +66,15 @@ interface RetrofitService {
     @POST("v1/matching")
     fun postMatchingAsync(
         @Body model: PostMatching.Request
-    ): Deferred<Response<PostMatching.Response>>
+    ): Deferred<Response<VoidResponse>>
+
+    /**
+     * 매칭조회(폴링용)
+     */
+    @GET("v1/matching")
+    fun getMatchingAsync(
+        @Query("userId") userId: String
+    ): Deferred<Response<GetMatching.Response>>
 
     /**
      * 앱 실행시 AMS 체크

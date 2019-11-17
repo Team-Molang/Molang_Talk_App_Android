@@ -1,5 +1,6 @@
 package com.molang.talk.common.network
 
+import android.util.Log
 import com.google.gson.Gson
 import retrofit2.Response
 
@@ -42,8 +43,10 @@ inline fun <T : Any> Result<T>.onComplete(action: () -> Unit): Result<T> {
 fun <B : BaseResponse<R>, R : Any> Response<B>.result(): Result<R>? {
     return try {
         if (this.isSuccessful) {
+            Log.e("shokitest", "isSuccessful")
             Success(body()?.mapper())
         } else {
+            Log.e("shokitest", "failed")
             val body = errorBody()?.source()?.buffer()?.clone()?.readUtf8()
             val error = Gson().fromJson<Failure.Error>(body, Failure.Error::class.java)
             Failure(error)

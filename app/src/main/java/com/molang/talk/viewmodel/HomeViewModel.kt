@@ -1,14 +1,19 @@
 package com.molang.talk.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.molang.talk.common.network.model.PutPushKey
+import com.molang.talk.common.network.onComplete
+import com.molang.talk.common.network.onError
+import com.molang.talk.common.network.onFailure
 import com.molang.talk.common.network.onSuccess
 import com.molang.talk.common.network.repository.AppRepository
 import com.molang.talk.common.network.repository.MatchingRepository
 import com.molang.talk.common.network.repository.UserRepository
 import com.molang.talk.viewmodel.base.BaseViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class HomeViewModel(
@@ -40,12 +45,36 @@ class HomeViewModel(
     fun postMatching() {
         viewModelScope.launch(exceptionCoroutineScope) {
             matchingRepository.postMatching()
+                ?.onSuccess {
+                    Log.e("shokitest", "success")
+                    getMatchingByPolling()
+                }
         }
     }
 
     fun putPushKey(pushKey: String) {
         viewModelScope.launch(exceptionCoroutineScope) {
             appRepository.putPushKey(pushKey)
+        }
+    }
+
+    fun getMatchingByPolling() {
+        viewModelScope.launch(exceptionCoroutineScope) {
+            matchingRepository.getMatching()
+                ?.onSuccess {
+                    if (!it.isMatching) {
+                        delay(3000)
+                        getMatchingByPolling()
+                    }
+                }
+                ?.onFailure {
+                    delay(3000)
+                    getMatchingByPolling()
+                }
+                ?.onError {
+                    delay(3000)
+                    getMatchingByPolling()
+                }
         }
     }
 }
